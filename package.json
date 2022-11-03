@@ -27,6 +27,7 @@
     "gatsby-remark-embed-video": "^3.2.1",
     "gatsby-source-cloudinary": "^0.3.0",
     "gatsby-source-filesystem": "^4.24.0",
+    "gatsby-transformer-cloudinary": "^4.1.0",
     "gatsby-transformer-json": "^4.24.0",
     "gatsby-transformer-sharp": "^4.24.0",
     "react": "^18.1.0",

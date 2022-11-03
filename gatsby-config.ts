@@ -69,7 +69,13 @@ const config: GatsbyConfig = {
         prefix: `samples/`,
         maxResults: 1000
       }
-    }
+    },
+    {
+      resolve: `gatsby-transformer-cloudinary`,
+      options: {
+        transformTypes: [`CloudinaryMedia`],
+      },
+    },
   ],
   jsxRuntime: "automatic"
 }

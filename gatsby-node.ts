@@ -1,4 +1,4 @@
-import type { GatsbyGraphQLType, GatsbyNode, Actions, NodePluginArgs } from "gatsby"
+import { GatsbyGraphQLType, GatsbyNode, Actions, NodePluginArgs, graphql } from "gatsby"
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import dotenv from 'dotenv';
 import { v2 as v2cloudinary } from 'cloudinary';
@@ -161,18 +161,10 @@ export const createResolvers: GatsbyNode["createResolvers"] = ({ createResolvers
 export const sourceNodes: GatsbyNode["sourceNodes"] = async ({
     actions,
     createNodeId,
-    createContentDigest
+    createContentDigest,
+    
 }) => {
     const { createNode } = actions;
-
-    // createNode({
-    //     id: "test-1",
-    //     internal: {
-    //         type: `CloudinaryFolder`,
-    //         contentDigest: "for test"
-    //     },
-    //     foldername: "samples/animals"
-    // })
 
     const cldFolderInfo: CludinaryFolderResponse =
         await v2cloudinary.api.sub_folders("samples", { max_results: 300 })
@@ -204,5 +196,4 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
 }) => {
     // if(node.internal.type === "Mdx" )reporter.info((node.frontmatter as any).hero_image.toString())
 }
-
 
