@@ -6,15 +6,15 @@ import type { PageProps } from 'gatsby';
 import { ReactNode } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-export async function config() {
-    // Optionally use GraphQL here
+// export async function config() {
+//     // Optionally use GraphQL here
 
-    return ({ params }) => {
-        return {
-            defer: true,
-        }
-    }
-}
+//     return ({ params }) => {
+//         return {
+//             defer: true,
+//         }
+//     }
+// }
 
 
 const BlogPost = ({ data, children }: PageProps<Queries.FoodQueryQuery>) => {
@@ -122,7 +122,8 @@ query FoodQuery {
   }
   fTraced: cloudinaryFolder(foldername: {eq: "food"}) {
     cloudinaryMedias {
-      gatsbyImageData(placeholder: TRACED_SVG)
+    #   gatsbyImageData(placeholder: TRACED_SVG)
+      gatsbyImageData(placeholder: NONE)
       id
     }
   }
